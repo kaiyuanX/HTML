@@ -308,7 +308,7 @@ vue 中的指令按照不同的用途可以分为如下 6 大类
    - methods 中的函数内部的 this 指向它属于的 Vue 实例
    - 如果不传递任何参数，则 methons 无需加小括号
 
-    ```js
+    ```html
     # fn 是 vue 实例中的一个 methods
 
     <div id="app">
@@ -323,7 +323,7 @@ vue 中的指令按照不同的用途可以分为如下 6 大类
 2. 语法：`v-bind:属性名="exp"`
 3. `v-bind:` 简写成 `:`
 
-比如，有一个图片，它的 `src` 属性值，是一个图片地址。这个地址在数据 data 中存储。
+比如，有一个图片，它的 `src` 属性值数据 data 的 url 变量中存储
 
 则可以这样设置属性值：
 
@@ -485,7 +485,7 @@ computed: {
 
 # watch 侦听器
 
-​监视数据变化，执行一些业务逻辑或异步操作
+​数据变化，则执行一些操作
 
 语法
 
@@ -589,13 +589,15 @@ watch: {
 
 ## 生命周期钩子
 
-Vue生命周期过程中，会自动运行一些函数，被称为【生命周期钩子】
+Vue 生命周期过程中，会自动运行一些函数，被称为【生命周期钩子】
 
 开发者可以在钩子中嵌入额外的逻辑
 
 ![68206604029](assets/1682066040295.png)
 
 ```js
+// 与 data 平级
+
 async created() {
   // 1. 发送请求获取数据
   const res = await axios.get('http://hmajax.itheima.net/api/news')
@@ -608,8 +610,8 @@ async created() {
 # mounted 获取焦点
 
 // 核心思路：
-// 1. 等input框渲染出来 mounted 钩子
-// 2. 让input框获取焦点 inp.focus()
+// 1. 等 input 框渲染出来 mounted 钩子
+// 2. 让 input 框获取焦点 inp.focus()
 mounted() {
   document.querySelector('#inp').focus()
 }

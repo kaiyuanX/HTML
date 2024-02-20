@@ -63,11 +63,20 @@
   - [Math](#math)
       - [属性](#属性)
       - [方法](#方法)
+  - [JSON](#json)
+  - [BOM](#bom)
+      - [window](#window)
+      - [loction](#loction)
+  - [DOM](#dom)
+      - [获取](#获取)
+      - [修改](#修改)
+  - [事件监听](#事件监听)
 
+---
 
-> 了解变量、数据类型、运算符等基础概念
-> 
-> 能够实现数据类型的转换，结合四则运算体会如何编程
+参考
+
+- [W3school]()
 
 # 介绍
 
@@ -787,3 +796,142 @@ Math.pow(2, 3) // 求 2 的 3 次方
 // 求某数的平方根
 Math.sqrt(16)
 ```
+
+## JSON
+
+JSON 格式的字符串
+
+- `var s = '{"key1": value1, "key2": value2}';`
+
+字符串转为 JSON 对象
+
+- `var j = JSON.parse(s);`
+
+JSON 对象转为字符串
+
+- `var s = JSON.stringify(j);`
+
+## BOM
+
+JavaScript 将浏览器的各个组成部分封装为对象
+- `Window`：浏览器窗口对象
+- `Navigator`：浏览器对象
+- `Screen`：屏幕对象
+- `History`：历史记录对象
+- `Location`：地址栏对象
+
+#### window
+
+介绍：浏览器窗口对象，其中 `window.` 可以省略
+
+属性
+- history：对 History 对象的只读引用
+- location：用于窗口或框架的 Location 对象
+- navigator：对 Navigator 对象的只读引用
+
+方法
+- alert()：显示带有一段消息和一个确认按钮的警告框
+- confirm()：显示带有一段消息以及确认按钮和取消按钮的对话框
+- setInterval()：按照指定的周期（以毫秒计）来调用函数或计算表达式
+- setTimeout()：在指定的毫秒数后调用函数或计算表达式
+
+#### loction
+
+介绍：地址栏对象，`window.location` 获取，其中 `window.` 可以省略
+
+属性
+- href：设置或返回完整的 URL
+
+```js
+alert(location.href);
+
+location.href = "https://www.itcast.cn";
+```
+
+## DOM
+
+将标记语言的各个组成部分封装为对应的对象
+
+- `Document`：整个文档对象
+- `Element`：元素对象
+- `Attribute`：属性对象
+- `Text`：文本对象
+- `Comment`：注释对象
+
+```html
+<html>
+    <head>
+        <title>DOM</title>
+    </head>
+    <body>
+        <h1>DOM对象标题</h1>
+        <a href="https://itcast.cn">传智教育</a>
+    </body>
+</html>
+
+```
+
+![](image/2024-02-19-14-37-29.png)
+
+#### 获取
+
+HTML 中的 Element 对象可以通过 `Document` 对象获取，而 `Document` 对象是通过 `window` 对象获取的
+
+Document 对象中提供了以下获取 Element 元素对象的函数
+
+- 根据标签名称获取，返回 Element 对象数组
+  - `var divs = document.getElementsByTagName('div');`
+- 根据 id 属性值获取，返回单个 Element 对象
+  - `var i = document.getElementById('i');`
+- 根据 name 属性值获取，返回 Element 对象数组
+  - `var ns = document.getElementsByName('n');`
+- 根据 class 属性值获取，返回 Element 对象数组
+  - `var clss = document.getElementsByClassName('cls');`
+
+#### 修改
+
+详细函数查手册
+
+```js
+var divs = document.getElementsByClassName('cls');
+var div1 = divs[0];
+
+div1.innerHTML = "XKY";
+```
+
+## 事件监听
+
+① 通过 HTML 标签中的事件属性进行绑定
+
+```html
+<input type="button" onclick="on()" value="x">
+
+<script>
+    function on(){
+        ...
+    }
+</script>
+```
+
+② 通过 DOM 元素属性绑定
+
+```html
+<input type="button" id="btn" value="x">
+
+<script>
+    document.getElementById('btn').onclick=function(){
+        ...
+    }
+</script>
+```
+
+常见事件
+
+- `onclick` : 鼠标单击事件
+- `onblur` : 元素失去焦点
+- `onfocus` : 元素获得焦点
+- `onload` : 某个页面或图像被完成加载
+- `onsubmit` : 当表单提交时触发该事件
+- `onkeydown` : 某个键盘的键被按下
+- `onmouseover` : 鼠标被移到某元素之上
+- `onmouseout` : 鼠标从某元素移开

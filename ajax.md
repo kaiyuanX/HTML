@@ -1,7 +1,7 @@
 - [AJAX](#ajax)
   - [实例](#实例)
-  - [异步特性](#异步特性)
   - [axios 框架](#axios-框架)
+      - [引包](#引包)
       - [get 请求](#get-请求)
       - [post 请求](#post-请求)
       - [响应结构](#响应结构)
@@ -50,11 +50,15 @@ Asynchronous Javascript and XML
 </script>
 ```
 
-## 异步特性
-
 ## axios 框架
 
 [axios 官网](https://www.axios-http.cn/)
+
+#### 引包
+
+```html
+<script src=" "></script>
+```
 
 #### get 请求
 
